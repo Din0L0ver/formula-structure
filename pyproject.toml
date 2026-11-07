@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formula-structure"
+version = "0.1.0"
+description = "Structure-guided discovery of interpretable formulas from tabular data"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = [
+  "symbolic regression",
+  "interpretable machine learning",
+  "engineering formulas",
+  "accumulated local effects",
+  "model trees",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.10",
+  "scikit-learn>=1.6",
+  "tabulate>=0.9",
+]
+
+[project.optional-dependencies]
+optimization = ["optuna>=4,<5"]
+plots = ["matplotlib>=3.7"]
+dev = [
+  "build>=1.2",
+  "ruff>=0.8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
